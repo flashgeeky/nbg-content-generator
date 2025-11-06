@@ -1,7 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "framework": "nextjs",
-  "env": {
-    "ANTHROPIC_API_KEY": "@anthropic-api-key"
-  }
-}
