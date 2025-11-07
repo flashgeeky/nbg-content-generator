@@ -5,6 +5,47 @@ import { buildBrandPagePrompt, buildCategoryPagePrompt } from '../../lib/prompts
 
 export const maxDuration = 60 // Allow up to 60 seconds for content generation
 
+async function callAnthropicWithRetry(anthropic: Anthropic, prompt: string, maxRetries = 3) {
+  let lastError: any
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const message = await anthropic.messages.create({
+        model: 'claude-sonnet-4-5-20250929',
+        max_tokens: 8000,
+        temperature: 1,
+        messages: [
+          {
+            role: 'user',
+            content: prompt,
+          },
+        ],
+      })
+
+      return message
+    } catch (error: any) {
+      lastError = error
+
+      // Only retry on transient errors (overloaded or rate limit)
+      const isRetryable = error?.status === 529 || error?.status === 429
+      const isLastAttempt = attempt === maxRetries
+
+      if (isRetryable && !isLastAttempt) {
+        // Exponential backoff: 2s, 4s, 8s
+        const delayMs = Math.pow(2, attempt + 1) * 1000
+        console.log(`Attempt ${attempt + 1} failed with status ${error?.status}. Retrying in ${delayMs}ms...`)
+        await new Promise(resolve => setTimeout(resolve, delayMs))
+        continue
+      }
+
+      // If not retryable or last attempt, throw the error
+      throw error
+    }
+  }
+
+  throw lastError
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Check for API key
@@ -37,18 +78,8 @@ export async function POST(request: NextRequest) {
       apiKey: apiKey,
     })
 
-    // Call Claude API
-    const message = await anthropic.messages.create({
-      model: 'claude-sonnet-4-5-20250929',
-      max_tokens: 8000,
-      temperature: 1,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-    })
+    // Call Claude API with retry logic
+    const message = await callAnthropicWithRetry(anthropic, prompt)
 
     // Extract the response text
     const responseText = message.content[0].type === 'text'
@@ -74,6 +105,13 @@ export async function POST(request: NextRequest) {
     console.error('API Error:', error)
 
     // Handle specific error types
+    if (error?.status === 529) {
+      return NextResponse.json(
+        { success: false, error: 'Claude API is currently overloaded. We tried multiple times but the service is busy. Please wait a minute and try again.' },
+        { status: 529 }
+      )
+    }
+
     if (error?.status === 429) {
       return NextResponse.json(
         { success: false, error: 'Rate limit reached. Please try again in a moment.' },
