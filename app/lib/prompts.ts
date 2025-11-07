@@ -42,7 +42,7 @@ FAQ CONTENT:
 ${faqInput}
 
 WRITING PHILOSOPHY:
-Write like a knowledgeable gun shop owner who's been in the industry for 20+ years. You're having a real conversation with a customer who values your expertise. No marketing speak, no hype, no fluff.
+Write like a knowledgeable gun shop owner who's been in the industry for 20+ years. You're having a real conversation with a customer at No Boring Guns who values your expertise. No marketing speak, no hype, no fluff.
 
 CRITICAL STYLE REQUIREMENTS:
 - Use ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
@@ -51,6 +51,15 @@ CRITICAL STYLE REQUIREMENTS:
 - Don't repeat brand names excessively - once you've established context, use "they", "their products", or refer to specific product lines
 - Be specific and concrete rather than vague and promotional
 - Every claim should add actual value - cut anything that sounds like ad copy
+
+NO BORING GUNS INTEGRATION:
+- Mention "No Boring Guns" or "we" naturally 2-3 times throughout the main content (not just at the end)
+- Position No Boring Guns as the European retailer providing access to this brand
+- Examples of natural mentions:
+  * "At No Boring Guns, we stock the complete Arcalock lineup because..."
+  * "European shooters can find their full range through us, avoiding international shipping costs"
+  * "We carry both the Hellfire and Sidewinder options, letting you choose based on..."
+- Don't force it - only mention when contextually relevant (stock availability, European pricing, product selection)
 
 CONTENT STRUCTURE:
 
@@ -126,10 +135,15 @@ META DESCRIPTION (150-160 characters):
 FAQ SECTION:
 - Use provided Q&A pairs from: ${faqInput}
 - Format each question as H3
-- Answers should be detailed but direct (2-4 sentences each)
-- Maintain the same expert, conversational tone
-- Don't repeat information already covered in main content
-- Add specific details, specs, or considerations in answers
+- CRITICAL: Keep answers concise (2-3 sentences maximum, aim for 1-2)
+- Each answer must provide UNIQUE information - never repeat what other FAQ answers say
+- If multiple questions are similar, differentiate the answers significantly or skip redundant questions
+- Focus on practical, specific details rather than general background
+- Examples of good vs bad FAQ answers:
+  * BAD: "Area 419 is located in Indiana where they manufacture products with quality control"
+  * GOOD: "Area 419 manufactures in Indiana, with typical lead times of 2-3 weeks for custom orders"
+- Maintain expert, direct tone
+- Add specs, compatibility notes, or practical tips when relevant
 
 OUTPUT FORMAT (STRICT):
 Provide ONLY this format, nothing else:
@@ -203,7 +217,7 @@ FAQ CONTENT:
 ${faqInput}
 
 WRITING PHILOSOPHY:
-Write like an experienced gun shop owner helping a customer understand a product category. You've seen what works, what doesn't, and what questions people actually ask. Skip the sales pitch - provide the information they need to make a smart purchase.
+Write like an experienced gun shop owner at No Boring Guns helping a customer understand a product category. You've seen what works, what doesn't, and what questions people actually ask. Skip the sales pitch - provide the information they need to make a smart purchase.
 
 CRITICAL STYLE REQUIREMENTS:
 - Use ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
@@ -212,6 +226,15 @@ CRITICAL STYLE REQUIREMENTS:
 - Don't oversell - acknowledge tradeoffs and considerations
 - Be specific about features, specs, and use cases
 - Every sentence should answer a real question or provide useful information
+
+NO BORING GUNS INTEGRATION:
+- Mention "No Boring Guns" or "we" naturally 2-3 times throughout the content
+- Position No Boring Guns as the European source for quality products in this category
+- Examples of natural mentions:
+  * "We stock options from €200 to €800, covering recreational to competition-grade"
+  * "At No Boring Guns, we carry both budget-friendly and premium options in this category"
+  * "Our inventory focuses on brands that handle European shooting conditions well"
+- Don't force it - only mention when discussing selection, pricing, or recommendations
 
 CONTENT STRUCTURE:
 
@@ -295,10 +318,15 @@ META DESCRIPTION (150-160 characters):
 FAQ SECTION:
 - Use provided Q&A pairs from: ${faqInput}
 - Format each question as H3
-- Answers should be practical and specific (2-5 sentences)
+- CRITICAL: Keep answers concise (2-3 sentences maximum, aim for 1-2)
+- Each answer must provide UNIQUE information - never repeat what other FAQ answers say
+- If multiple questions are similar, differentiate the answers significantly or skip redundant questions
+- Focus on practical buying advice, compatibility notes, or specific use cases
+- Examples of good vs bad FAQ answers:
+  * BAD: "Red dots are optics that help you aim better and acquire targets faster"
+  * GOOD: "Most red dots hold zero for 5,000+ rounds. Budget models may need re-zeroing every 500-1,000 rounds"
 - Maintain educational, helpful tone
-- Address real concerns buyers have
-- Include specs, compatibility info, or practical tips in answers
+- Include specific numbers, compatibility details, or practical tips
 
 OUTPUT FORMAT (STRICT):
 Provide ONLY this format, nothing else:
