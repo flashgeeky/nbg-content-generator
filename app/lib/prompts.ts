@@ -29,150 +29,124 @@ export function buildBrandPagePrompt(formData: FormData): string {
     .filter(Boolean)
     .join(', ')
 
-  return `You are writing high-value content for No Boring Guns, a European firearms retailer. Your goal is to create content that genuinely helps readers while naturally optimizing for search engines.
+  return `Write expert content for No Boring Guns, a European firearms retailer. Create genuinely helpful content that naturally optimizes for search.
 
 CONTENT TYPE: Brand Page
 PRIMARY KEYWORD: ${primaryKeyword}
 PRODUCT TYPES: ${productTypesList}
 SECONDARY KEYWORDS: ${secondaryKeywordsList}
 SEMANTIC KEYWORDS: ${semanticKeywordsList}
-TARGET LENGTH: ~${targetWordCount} words
-${refineInstructions ? `SPECIAL FOCUS: ${refineInstructions}\n` : ''}
-FAQ CONTENT:
+TARGET: ~${targetWordCount} words
+${refineInstructions ? `FOCUS: ${refineInstructions}\n` : ''}
+FAQ INPUT:
 ${faqInput}
 
-WRITING PHILOSOPHY:
-Write like a knowledgeable gun shop owner who's been in the industry for 20+ years. You're having a real conversation with a customer at No Boring Guns who values your expertise. No marketing speak, no hype, no fluff.
+TONE & STYLE:
+Write as a knowledgeable gun shop owner at No Boring Guns with 20+ years experience. Direct, conversational, expert - no marketing fluff.
 
-CRITICAL STYLE REQUIREMENTS:
+CRITICAL RULES:
 - Use ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
-- Write in a direct, conversational tone - imagine explaining this to someone at the counter
-- Avoid marketing clichés: "isn't just another", "when X isn't an option", "takes Y to the next level"
-- Don't repeat brand names excessively - once you've established context, use "they", "their products", or refer to specific product lines
-- Be specific and concrete rather than vague and promotional
-- Every claim should add actual value - cut anything that sounds like ad copy
+- Avoid: "isn't just another", "when X isn't an option", "takes Y to the next level", "leading manufacturer"
+- Don't repeat brand names excessively - use "they", "their products" after establishing context
+- Be specific and concrete, not vague and promotional
+- Every claim must add real value
 
-NO BORING GUNS INTEGRATION:
-- Mention "No Boring Guns" or "we" naturally 2-3 times throughout the main content (not just at the end)
-- Position No Boring Guns as the European retailer providing access to this brand
-- Examples of natural mentions:
-  * "At No Boring Guns, we stock the complete Arcalock lineup because..."
-  * "European shooters can find their full range through us, avoiding international shipping costs"
-  * "We carry both the Hellfire and Sidewinder options, letting you choose based on..."
-- Don't force it - only mention when contextually relevant (stock availability, European pricing, product selection)
+NO BORING GUNS MENTIONS:
+Naturally mention "No Boring Guns" or "we" 2-3 times throughout:
+- "At No Boring Guns, we stock the complete lineup because..."
+- "We carry both options, letting European shooters choose based on..."
+- "Available through us with competitive euro pricing"
 
-CONTENT STRUCTURE:
+STRUCTURE:
 
 1. OPENING (1-2 paragraphs):
-   - Establish who this brand is and why they matter
-   - Focus on one distinctive characteristic or origin story detail
-   - Skip the "leading manufacturer" generic openings
-   - Get to what makes them different immediately
+   - Who this brand is and why they matter
+   - One distinctive characteristic or origin detail
+   - Skip generic "leading manufacturer" openings
 
-2. BRAND STORY & PHILOSOPHY (1 H2 section):
-   - Real history, not marketing spin
-   - What drives their design philosophy
+2. BRAND STORY (1 H2 section):
+   - Real history and design philosophy
    - Manufacturing approach or quality standards
-   - Keep it factual and interesting
+   - Keep factual and interesting
 
-3. PRODUCT LINE OVERVIEW (1 H2 section with H3 subsections):
-   - Cover the product types provided: ${productTypesList}
-   - For each category, explain what problems these products solve
-   - Include real specifications or features when relevant
-   - Mention specific popular models naturally (don't force it)
-   - Use H3 tags for different product categories
+3. PRODUCT LINES (1 H2 with H3 subsections):
+   - Cover: ${productTypesList}
+   - For each: problems solved, key features, popular models
+   - Use H3 for different product categories
 
-4. WHY STOCK THEM (1 H2 section):
+4. WHY STOCK THEM (1 H2):
    - Why No Boring Guns carries this brand
-   - What customer types benefit most from their products
-   - Value proposition in practical terms
-   - Price references in euros (€) if relevant
+   - Customer types who benefit most
+   - Value proposition with euro (€) pricing context
 
-5. TECHNICAL CONSIDERATIONS (if applicable):
-   - Compatibility, mounting standards, common specs
-   - What buyers should verify before purchasing
-   - This shows expertise and builds trust
+5. TECHNICAL NOTES (if relevant):
+   - Compatibility, specs, what buyers should verify
 
-KEYWORD INTEGRATION:
-- Primary keyword: Use naturally in H1 (title), first paragraph, one H2, and scattered throughout
-- Secondary keywords: ${secondaryKeywordsList} - integrate where they fit naturally, don't force
-- Semantic keywords: ${semanticKeywordsList} - use these to add depth and related concepts
-- CRITICAL: Never stuff keywords. If a keyword doesn't fit naturally, skip it. Quality > keyword density.
+KEYWORDS:
+- Primary (${primaryKeyword}): Use in first paragraph, one H2, scattered naturally
+- Secondary (${secondaryKeywordsList}): Integrate where natural
+- Semantic (${semanticKeywordsList}): Add depth and related concepts
+- Never stuff keywords - quality over density
 
-TONE CALIBRATION:
-✓ DO: "Their muzzle brakes use a self-timing design, which eliminates the guessing game with shim kits."
-✗ DON'T: "Their revolutionary muzzle brakes aren't just another option - they're the gold standard when compromise isn't acceptable."
+TONE EXAMPLES:
+✓ "Their muzzle brakes use self-timing design, eliminating shim kit guessing."
+✗ "Their revolutionary brakes aren't just another option - they're the gold standard."
 
-✓ DO: "The brand started in northern Indiana, focused on solving real problems precision shooters face."
-✗ DON'T: "Founded in the heartland of America, this isn't just a company - it's a passion-driven revolution in precision."
+✓ "Started in northern Indiana, solving real precision shooter problems."
+✗ "Founded in America's heartland, this passion-driven revolution in precision."
 
-PARAGRAPH STRUCTURE:
-- Keep paragraphs 2-4 sentences each
-- Each paragraph should make ONE clear point
-- Use transition phrases sparingly and naturally
-- Vary sentence length for readability
+FORMATTING:
+- H2 for major sections
+- H3 for product category subsections
+- Standard <p> tags
+- No bold/italics unless necessary
+- 2-4 sentences per paragraph
 
-HTML FORMATTING:
-- H2 for major sections (use clear, descriptive headings)
-- H3 for subsections within product categories
-- Standard <p> tags for paragraphs
-- No bold, italics, or other formatting unless absolutely necessary
-- No lists unless you have 3+ distinct items that truly warrant list format
-
-META TITLE (50-60 characters):
+META TITLE (50-60 chars):
 - Include primary keyword naturally
 - End with " | No Boring Guns"
-- Make it click-worthy through specificity, not hype
-- Example: "Area 419 Precision Rifle Parts | No Boring Guns" NOT "Area 419 - Premium Precision | No Boring Guns"
+- Specific, not hype
+- Example: "Area 419 Precision Parts | No Boring Guns"
 
-META DESCRIPTION (150-160 characters):
+META DESCRIPTION (150-160 chars):
 - Primary keyword in first half
-- Specific value proposition (what makes this brand worth buying)
+- Specific value proposition
 - Natural call to action
-- Use euros (€) if mentioning price ranges
-- Example: "Area 419 precision rifle accessories and reloading equipment. Modular mounting systems, muzzle devices, and competition-grade tools. European stock, competitive prices in €."
+- Use euros (€) if mentioning prices
+- Example: "Area 419 precision rifle accessories and reloading equipment. Modular mounting systems, muzzle devices, competition tools. European stock, competitive €."
 
-FAQ SECTION:
-- Use provided Q&A pairs from: ${faqInput}
-- Format each question as H3
-- CRITICAL: Keep answers concise (2-3 sentences maximum, aim for 1-2)
-- Each answer must provide UNIQUE information - never repeat what other FAQ answers say
-- If multiple questions are similar, differentiate the answers significantly or skip redundant questions
-- Focus on practical, specific details rather than general background
-- Examples of good vs bad FAQ answers:
-  * BAD: "Area 419 is located in Indiana where they manufacture products with quality control"
-  * GOOD: "Area 419 manufactures in Indiana, with typical lead times of 2-3 weeks for custom orders"
+FAQ:
+- Use provided Q&A from input
+- H3 for each question
+- 1-2 sentences max per answer (3 max)
+- Each answer must provide UNIQUE info
+- Skip redundant questions
 - Maintain expert, direct tone
-- Add specs, compatibility notes, or practical tips when relevant
+- Add specs or practical details
 
-OUTPUT FORMAT (STRICT):
-Provide ONLY this format, nothing else:
-
+OUTPUT FORMAT:
 ---MAIN-CONTENT-START---
-[HTML content with H2 and H3 tags, starting directly with first H2]
+[HTML with H2/H3 tags]
 ---MAIN-CONTENT-END---
 
 ---META-TITLE-START---
-[Title text only, 50-60 chars including " | No Boring Guns"]
+[50-60 chars with " | No Boring Guns"]
 ---META-TITLE-END---
 
 ---META-DESCRIPTION-START---
-[Description text only, 150-160 chars]
+[150-160 chars]
 ---META-DESCRIPTION-END---
 
 ---FAQ-SECTION-START---
-[HTML with H3 for questions, <p> for answers]
+[HTML with H3 questions, <p> answers]
 ---FAQ-SECTION-END---
 
-FINAL QUALITY CHECKS BEFORE OUTPUTTING:
-1. Did I use em dashes anywhere? Remove them.
-2. Did I repeat the brand name too often? Reduce it.
-3. Does this sound like ad copy or genuine expertise? Make it genuine.
-4. Would a real customer find this helpful or just SEO padding? Cut the padding.
-5. Are my keywords forced or natural? Make them natural.
-6. Would I say this to someone's face at the counter? If not, rewrite it.
-
-Write content that YOU would want to read if you were researching this brand. That's the standard.`
+FINAL CHECKS:
+1. No em dashes anywhere
+2. Brand name not repeated excessively
+3. Sounds like expertise, not ad copy
+4. Keywords natural, not forced
+5. Would you say this to someone's face? If not, rewrite.`
 }
 
 export function buildCategoryPagePrompt(formData: FormData): string {
@@ -204,157 +178,125 @@ export function buildCategoryPagePrompt(formData: FormData): string {
     .filter(Boolean)
     .join(', ')
 
-  return `You are writing high-value content for No Boring Guns, a European firearms retailer. Your goal is to create content that genuinely helps buyers make informed decisions while naturally optimizing for search engines.
+  return `Write expert content for No Boring Guns, a European firearms retailer. Create buying guidance that helps customers make informed decisions while naturally optimizing for search.
 
 CONTENT TYPE: Category Page
 PRIMARY KEYWORD: ${primaryKeyword}
 PRODUCT TYPES: ${productTypesList}
 SECONDARY KEYWORDS: ${secondaryKeywordsList}
 SEMANTIC KEYWORDS: ${semanticKeywordsList}
-TARGET LENGTH: ~${targetWordCount} words
-${refineInstructions ? `SPECIAL FOCUS: ${refineInstructions}\n` : ''}
-FAQ CONTENT:
+TARGET: ~${targetWordCount} words
+${refineInstructions ? `FOCUS: ${refineInstructions}\n` : ''}
+FAQ INPUT:
 ${faqInput}
 
-WRITING PHILOSOPHY:
-Write like an experienced gun shop owner at No Boring Guns helping a customer understand a product category. You've seen what works, what doesn't, and what questions people actually ask. Skip the sales pitch - provide the information they need to make a smart purchase.
+TONE & STYLE:
+Write as an experienced gun shop owner at No Boring Guns helping customers understand a category. Teaching, not selling. Provide information for smart purchasing decisions.
 
-CRITICAL STYLE REQUIREMENTS:
+CRITICAL RULES:
 - Use ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
-- Write in a direct, educational tone - you're teaching, not selling
-- Avoid generic phrases: "wide variety", "perfect solution", "industry-leading", "top choice"
-- Don't oversell - acknowledge tradeoffs and considerations
-- Be specific about features, specs, and use cases
-- Every sentence should answer a real question or provide useful information
+- Avoid: "wide variety", "perfect solution", "industry-leading", "top choice"
+- Acknowledge tradeoffs and considerations - don't oversell
+- Be specific about features, specs, use cases
+- Every sentence should answer a real question
 
-NO BORING GUNS INTEGRATION:
-- Mention "No Boring Guns" or "we" naturally 2-3 times throughout the content
-- Position No Boring Guns as the European source for quality products in this category
-- Examples of natural mentions:
-  * "We stock options from €200 to €800, covering recreational to competition-grade"
-  * "At No Boring Guns, we carry both budget-friendly and premium options in this category"
-  * "Our inventory focuses on brands that handle European shooting conditions well"
-- Don't force it - only mention when discussing selection, pricing, or recommendations
+NO BORING GUNS MENTIONS:
+Naturally mention "No Boring Guns" or "we" 2-3 times:
+- "We stock options from €200 to €800, covering recreational to competition-grade"
+- "At No Boring Guns, our inventory focuses on quality European-suitable brands"
+- "Available through us with competitive pricing in euros"
 
-CONTENT STRUCTURE:
+STRUCTURE:
 
 1. OPENING (1-2 paragraphs):
-   - Define what this category is in practical terms
-   - Why someone might need products in this category
-   - Skip the "essential equipment" generic openings
-   - Set context for the buying guidance that follows
+   - Define category in practical terms
+   - Why someone needs these products
+   - Set context for buying guidance
 
-2. UNDERSTANDING THE CATEGORY (1 H2 section):
+2. UNDERSTANDING THE CATEGORY (1 H2):
    - What these products do and why they exist
-   - Key variations or types within the category
-   - Common misconceptions or confusion points
-   - Real-world applications and use cases
-   - Technical fundamentals a buyer should understand
+   - Key variations or types
+   - Common misconceptions
+   - Real-world applications
 
-3. BUYING GUIDE (1 H2 section with H3 subsections):
-   - Break down decision factors as H3 subsections
-   - Examples: "Mounting Systems", "Optical Quality", "Magnification Range"
-   - For each factor: why it matters, what to look for, tradeoffs
-   - Include specific specs or measurements when relevant
-   - Mention price ranges in euros (€) if helpful for context
+3. BUYING GUIDE (1 H2 with H3 subsections):
+   - Break decision factors into H3s: "Mounting Systems", "Magnification", etc.
+   - For each: why it matters, what to look for, tradeoffs
+   - Include specific specs or measurements
+   - Mention euro (€) price ranges for context
 
-4. PRODUCT TYPES & OPTIONS (1 H2 section):
-   - Cover the specific product types: ${productTypesList}
-   - For each type, explain what situations favor it
-   - Common brands or models (naturally, not forced)
-   - Price vs. performance considerations
-   - Who these products suit best
+4. PRODUCT TYPES (1 H2):
+   - Cover: ${productTypesList}
+   - For each: ideal situations, common brands/models, price vs performance
+   - Who each type suits best
 
-5. COMMON MISTAKES TO AVOID (optional H2):
-   - Real pitfalls buyers encounter
-   - Compatibility issues or overlooked factors
-   - This demonstrates genuine expertise
+5. CHOOSING FOR YOUR NEEDS (1 H2):
+   - Different user profiles: competition, hunting, tactical, recreational
+   - Match product types to needs
+   - Budget allocation guidance
 
-6. CHOOSING FOR YOUR NEEDS (1 H2 section):
-   - Different user profiles (competition, hunting, tactical, recreational)
-   - Match product types to specific needs
-   - Budget allocation guidance if relevant
-   - When to prioritize which features
+KEYWORDS:
+- Primary (${primaryKeyword}): First paragraph, H2 headings, throughout
+- Secondary (${secondaryKeywordsList}): Where contextually appropriate
+- Semantic (${semanticKeywordsList}): Expand topic naturally
+- Readability over keyword placement always
 
-KEYWORD INTEGRATION:
-- Primary keyword: ${primaryKeyword} - use naturally throughout, especially in first paragraph and H2 headings
-- Secondary keywords: ${secondaryKeywordsList} - integrate where contextually appropriate
-- Semantic keywords: ${semanticKeywordsList} - use to expand topic coverage naturally
-- CRITICAL: Prioritize readability over keyword placement. Force nothing.
+TONE EXAMPLES:
+✓ "Red dots offer unlimited eye relief and fast acquisition. Tradeoff: limited magnification, typically 1x to 3x."
+✗ "Red dots aren't just accessories - they're game-changing optics that take shooting to the next level."
 
-TONE CALIBRATION:
-✓ DO: "Red dot sights offer unlimited eye relief and fast target acquisition. The tradeoff is limited magnification, typically 1x or up to 3x."
-✗ DON'T: "Red dot sights aren't just accessories - they're game-changing optics that take your shooting to the next level with unlimited eye relief."
+✓ "Budget €200-400 for reliable red dots. Competition models run €500-800. Difference is mainly glass clarity and recoil durability."
+✗ "While budget options exist, serious shooters know premium red dots aren't expenses - they're investments."
 
-✓ DO: "Budget €200-400 for reliable red dots. Competition-grade models run €500-800. The difference is mostly in glass clarity and durability under recoil."
-✗ DON'T: "While budget options exist, serious shooters know that investing in premium red dots isn't an expense - it's an investment in performance."
+FORMATTING:
+- H2 for major sections
+- H3 for buying guide subsections and product types
+- Standard <p> tags
+- 2-4 sentences per paragraph
+- Use lists ONLY for 3+ distinct items
 
-PARAGRAPH STRUCTURE:
-- Keep paragraphs focused on ONE concept
-- 2-4 sentences per paragraph typically
-- Lead with the main point, then support it
-- Use concrete examples instead of vague statements
-- Vary sentence length but keep everything readable
-
-HTML FORMATTING:
-- H2 for major sections (clear, descriptive headings)
-- H3 for subsections within buying guide and product types
-- Standard <p> tags for paragraphs
-- No unnecessary formatting
-- Use lists ONLY when you have 3+ distinct items that benefit from list format (like comparing feature sets)
-
-META TITLE (50-60 characters):
+META TITLE (50-60 chars):
 - Include primary keyword
 - End with " | No Boring Guns"
-- Be specific about what makes this guide valuable
-- Example: "Red Dot Sights Guide & Reviews | No Boring Guns" NOT "Best Red Dots - Ultimate Guide | No Boring Guns"
+- Specific value
+- Example: "Red Dot Sights Guide & Reviews | No Boring Guns"
 
-META DESCRIPTION (150-160 characters):
-- Primary keyword in first 80 characters
-- Highlight specific value (what questions this answers)
+META DESCRIPTION (150-160 chars):
+- Primary keyword in first 80 chars
+- Highlight specific value
 - Natural call to action
 - Example: "Complete red dot sight guide: how to choose, what to look for, and top options for hunting, competition, and tactical use. Expert recommendations in €."
 
-FAQ SECTION:
-- Use provided Q&A pairs from: ${faqInput}
-- Format each question as H3
-- CRITICAL: Keep answers concise (2-3 sentences maximum, aim for 1-2)
-- Each answer must provide UNIQUE information - never repeat what other FAQ answers say
-- If multiple questions are similar, differentiate the answers significantly or skip redundant questions
-- Focus on practical buying advice, compatibility notes, or specific use cases
-- Examples of good vs bad FAQ answers:
-  * BAD: "Red dots are optics that help you aim better and acquire targets faster"
-  * GOOD: "Most red dots hold zero for 5,000+ rounds. Budget models may need re-zeroing every 500-1,000 rounds"
-- Maintain educational, helpful tone
-- Include specific numbers, compatibility details, or practical tips
+FAQ:
+- Use provided Q&A from input
+- H3 for each question
+- 1-2 sentences max per answer (3 max)
+- Each answer must provide UNIQUE info
+- Skip redundant questions
+- Focus on practical buying advice, compatibility, use cases
+- Include specific numbers or details
 
-OUTPUT FORMAT (STRICT):
-Provide ONLY this format, nothing else:
-
+OUTPUT FORMAT:
 ---MAIN-CONTENT-START---
-[HTML content with H2 and H3 tags, starting directly with first H2]
+[HTML with H2/H3 tags]
 ---MAIN-CONTENT-END---
 
 ---META-TITLE-START---
-[Title text only, 50-60 chars including " | No Boring Guns"]
+[50-60 chars with " | No Boring Guns"]
 ---META-TITLE-END---
 
 ---META-DESCRIPTION-START---
-[Description text only, 150-160 chars]
+[150-160 chars]
 ---META-DESCRIPTION-END---
 
 ---FAQ-SECTION-START---
-[HTML with H3 for questions, <p> for answers]
+[HTML with H3 questions, <p> answers]
 ---FAQ-SECTION-END---
 
-FINAL QUALITY CHECKS BEFORE OUTPUTTING:
-1. Did I use em dashes anywhere? Remove them - use regular hyphens only.
-2. Does this actually help someone make a buying decision? If not, add value.
-3. Are there specific details (specs, prices, features) or just vague claims? Add specifics.
-4. Would a knowledgeable customer find errors or oversimplifications? Fix them.
-5. Are keywords forced or do they flow naturally? Make them flow.
-6. Does any sentence sound like marketing copy? Rewrite it as education.
-7. Did I acknowledge tradeoffs and considerations? Buyers trust honest guidance.
-
-Write content that provides genuine buying guidance - the kind you'd want if you were spending your own money on these products. Don't write content you'd skip past if you were researching online.`
+FINAL CHECKS:
+1. No em dashes - only regular hyphens
+2. Specific details (specs, prices, features), not vague claims
+3. Tradeoffs acknowledged - buyers trust honest guidance
+4. Keywords flow naturally
+5. Sounds educational, not marketing`
 }
