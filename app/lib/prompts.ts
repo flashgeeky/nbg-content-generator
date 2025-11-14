@@ -46,8 +46,18 @@ CRITICAL RULES:
 - Conversational, direct tone - like talking to a customer at the counter
 - Avoid clichés: "isn't just another", "when X isn't an option", "takes Y to the next level"
 - After establishing brand name, vary with "they/their products/the company"
-- Be specific with real details (specs, features, compatibility) not vague promotional claims
 - Mention "No Boring Guns" or "we" naturally 2-3 times (stock info, European access, pricing in €)
+
+ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
+- NEVER invent specific product model names unless explicitly provided in the input
+- NEVER cite specific measurements, weights, or dimensions (e.g., "175mm length", "89mm barrel")
+- NEVER state country of origin unless you're certain - if unsure, say "manufactured in [region]" or omit
+- NEVER invent company founding stories, founder backgrounds, or specific historical dates
+- NEVER cite specific prices or price ranges unless provided in the input
+- NEVER describe specific technical specifications you don't have
+- When you lack specific information, stay general: "various models available", "range of sizes", "competitive pricing"
+- If you don't know something, don't make it up - write around it or acknowledge limited public information
+- Better to be slightly vague than confidently wrong
 
 STRUCTURE (write full ${targetWordCount} words across all sections):
 
@@ -68,6 +78,14 @@ KEYWORDS: Integrate primary naturally in opening + one H2 heading. Scatter secon
 TONE EXAMPLES:
 ✓ "They manufacture in-house at their Indiana facility, controlling the tolerances that matter for precision work."
 ✗ "This isn't just a company - it's a passion-driven revolution when compromise isn't an option."
+
+HALLUCINATION EXAMPLES (NEVER DO THIS):
+✗ "KMR Precision Arms builds defensive pistols in the United States" (if you don't know country of origin)
+✗ "Their compact models measure around 175mm in overall length with barrel lengths typically at 89mm" (never cite specific measurements you don't have)
+✗ "Founded in 2015 by two competitive shooters from the military" (never invent founding stories)
+✗ "The KMR-15 Pro model features a 4.5-inch barrel" (never invent specific product model names)
+✓ "They produce a range of pistol models designed for defensive use" (stay general when specifics aren't known)
+✓ "The brand focuses on reliability for concealed carry and duty applications" (describe general approach, not fake specs)
 
 META TITLE:
 - Must be 50-60 characters TOTAL (including " | No Boring Guns")
@@ -117,7 +135,8 @@ FINAL QUALITY CHECKS:
 2. Any em dashes (—)? Remove all, use only regular hyphens (-).
 3. Meta description under 160 characters? Count it precisely.
 4. FAQ answers have 2-3 sentences with real details? Expand if too brief.
-5. Does this sound like expertise or ad copy? Fix tone if promotional.`
+5. Does this sound like expertise or ad copy? Fix tone if promotional.
+6. HALLUCINATION CHECK: Did I invent any specific model names, measurements, specs, prices, or company history I'm not certain about? Remove all fabricated details.`
 }
 
 export function buildCategoryPagePrompt(formData: FormData): string {
@@ -166,9 +185,18 @@ CRITICAL RULES:
 - Educational, direct tone - teaching not selling
 - Avoid generic phrases: "wide variety", "perfect solution", "industry-leading", "top choice"
 - Acknowledge tradeoffs and considerations - don't oversell
-- Be specific about features, specs, and use cases
 - Every sentence should answer a real question or provide useful information
 - Mention "No Boring Guns" or "we" naturally 2-3 times (selection, pricing in €, recommendations)
+
+ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
+- NEVER invent specific product model names or brands unless you're certain they exist
+- NEVER cite specific measurements, battery life hours, or technical specs you don't have
+- NEVER state definitive prices - use ranges only if you're certain (e.g., "typically €200-600")
+- NEVER describe specific features of products you're not sure about
+- When discussing "typical" specs, use qualifiers: "generally", "often", "many models", "typically range"
+- If you don't have specific information, stay educational and general
+- Focus on decision criteria and what to look for, not invented product details
+- Better to explain concepts than cite fake specifications
 
 STRUCTURE (write full ${targetWordCount} words across all sections):
 
@@ -189,6 +217,14 @@ KEYWORDS: Integrate primary naturally throughout, especially first paragraph and
 TONE EXAMPLES:
 ✓ "Red dot sights offer unlimited eye relief and fast target acquisition. The tradeoff is limited magnification, typically 1x or up to 3x."
 ✗ "Red dot sights aren't just accessories - they're game-changing optics that take your shooting to the next level."
+
+HALLUCINATION EXAMPLES (NEVER DO THIS):
+✗ "Most red dots last exactly 50,000 hours on setting 8" (never cite specific numbers you don't have)
+✗ "Budget models typically measure 45mm in length and weigh 85 grams" (never invent specific measurements)
+✗ "The Holosun HS507C costs €320 while the Trijicon RMR runs €580" (never cite specific prices unless provided)
+✗ "Premium models use the new XR-9 coating technology" (never invent technical features or terminology)
+✓ "Battery life varies widely - premium models can run for years, budget options may need changes every 6-12 months" (general ranges are fine)
+✓ "Prices typically range from budget-friendly options under €200 to competition-grade models above €500" (broad ranges OK if you're certain)
 
 META TITLE:
 - Must be 50-60 characters TOTAL (including " | No Boring Guns")
@@ -237,5 +273,6 @@ FINAL QUALITY CHECKS:
 2. Any em dashes (—)? Remove all, use only regular hyphens (-).
 3. Meta description under 160 characters? Count it precisely.
 4. FAQ answers have 2-3 sentences with practical details? Expand if too brief.
-5. Does this actually help buying decisions? Add value if too vague.`
+5. Does this actually help buying decisions? Add value if too vague.
+6. HALLUCINATION CHECK: Did I cite any specific model names, measurements, battery life numbers, or technical specs I'm not certain exist? Remove all fabricated details.`
 }
