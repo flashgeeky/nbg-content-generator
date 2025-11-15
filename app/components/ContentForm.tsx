@@ -1,10 +1,10 @@
 'use client'
 
-import { FormData, ContentType } from '../types'
+import { ContentFormData, ContentType } from '../types'
 
 interface ContentFormProps {
-  formData: FormData
-  onFormDataChange: (data: FormData) => void
+  formData: ContentFormData
+  onFormDataChange: (data: ContentFormData) => void
   onGenerate: () => void
   isLoading: boolean
 }
@@ -16,7 +16,7 @@ export default function ContentForm({
   isLoading,
 }: ContentFormProps) {
   const handleInputChange = (
-    field: keyof FormData,
+    field: keyof ContentFormData,
     value: string | number | ContentType
   ) => {
     onFormDataChange({

@@ -1,6 +1,6 @@
 export type ContentType = 'brand' | 'category'
 
-export interface FormData {
+export interface ContentFormData {
   contentType: ContentType
   primaryKeyword: string
   productTypes: string

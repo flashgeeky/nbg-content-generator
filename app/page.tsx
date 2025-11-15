@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import ContentForm from './components/ContentForm'
 import ContentOutput from './components/ContentOutput'
-import { FormData, GeneratedContent, ApiResponse } from './types'
+import { ContentFormData, GeneratedContent, ApiResponse } from './types'
 
 export default function Home() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContentFormData>({
     contentType: 'brand',
     primaryKeyword: '',
     productTypes: '',
