@@ -168,9 +168,9 @@ export function buildCategoryPagePrompt(formData: ContentFormData): string {
     .filter(Boolean)
     .join(', ')
 
-  return `Write expert buying guide for No Boring Guns, a European firearms retailer. Tone: experienced shop owner helping customer understand a category.
+  return `Write category page content for No Boring Guns, a European firearms retailer. This is a SHOP CATEGORY PAGE, not an educational article.
 
-CONTENT TYPE: Category Page
+CONTENT TYPE: Category Page (Ecommerce)
 PRIMARY KEYWORD: ${primaryKeyword}
 PRODUCT TYPES: ${productTypesList}
 SECONDARY KEYWORDS: ${secondaryKeywordsList}
@@ -182,11 +182,13 @@ ${faqInput}
 
 CRITICAL RULES:
 - ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
-- Educational, direct tone - teaching not selling
-- Avoid generic phrases: "wide variety", "perfect solution", "industry-leading", "top choice"
-- Acknowledge tradeoffs and considerations - don't oversell
-- Every sentence should answer a real question or provide useful information
-- Mention "No Boring Guns" or "we" naturally 2-3 times (selection, pricing in €, recommendations)
+- COMMERCIAL TONE: This is a shop category page, not a blog article
+- Write like a knowledgeable retailer showcasing inventory, not an educator writing a guide
+- Reference "we stock", "our selection", "browse", "shop" naturally throughout
+- Make it clear customers can BUY these products here
+- Educational buying advice is good, but frame it around what you sell
+- Acknowledge tradeoffs honestly
+- Mention "No Boring Guns" or "we" 3-4 times (more than brand pages since this is YOUR category)
 
 ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
 - NEVER invent specific product model names or brands unless you're certain they exist
@@ -198,81 +200,118 @@ ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
 - Focus on decision criteria and what to look for, not invented product details
 - Better to explain concepts than cite fake specifications
 
-STRUCTURE (write full ${targetWordCount} words across all sections):
+TONE - COMMERCIAL VS ARTICLE:
+✗ WRONG (too article-like): "Gun optics transform how you aim and engage targets, replacing traditional iron sights with magnified systems."
+✓ RIGHT (commercial): "Shop gun optics for pistols, rifles, and AK platforms. We stock red dots, magnified scopes, and complete mounting solutions."
 
-1. OPENING (1-2 paragraphs): Define category in practical terms, why someone might need products in this category. Skip generic "essential equipment" openings.
+✗ WRONG: "Understanding the relationship between optic type and mounting hardware matters..."
+✓ RIGHT: "Browse our optics selection - we carry everything from red dots to tactical scopes with compatible mounts."
 
-2. H2 - UNDERSTANDING [CATEGORY]: What these products do and why they exist, key variations within category, common misconceptions, real-world applications, technical fundamentals buyers should understand.
+STRUCTURE (write full ${targetWordCount} words, commercial tone):
 
-3. H2 - BUYING GUIDE (with H3 subsections): Break down decision factors as H3s (e.g., "Mounting Systems", "Optical Quality", "Magnification Range"). For each: why it matters, what to look for, tradeoffs. Include specific specs or measurements. Mention price ranges in euros (€).
+1. OPENING (2 paragraphs):
+   - Start with what you SELL in this category, not education
+   - "Shop [category] at No Boring Guns. We stock [products] for [uses]."
+   - Second paragraph: Why customers buy from this category, what problems these products solve
+   - Reference "our inventory", "we carry", "browse our selection"
 
-4. H2 - PRODUCT TYPES & OPTIONS: Cover ${productTypesList}. For each type, explain what situations favor it, common brands/models naturally mentioned, price vs performance considerations, who these suit best.
+2. H2 - PRODUCT OVERVIEW:
+   - What's in this category (keep educational but frame around "what we stock")
+   - Key product types customers can find here
+   - Brief technical context (not a lecture)
 
-5. H2 - CHOOSING FOR YOUR NEEDS: Different user profiles (competition, hunting, tactical, recreational). Match product types to specific needs, budget allocation guidance.
+3. H2 - BUYING GUIDE or CHOOSING [CATEGORY] (with H3 subsections):
+   - Decision factors as H3s (e.g., "Mounting Options", "Optical Quality", "Budget Ranges")
+   - For each: what to consider, tradeoffs, what we stock in each tier
+   - Price ranges in euros (€) - reference "our" prices or typical market ranges
+   - Make it helpful but commercial: "We stock options from €X to €Y"
 
-Write each section with depth. Total must be approximately ${targetWordCount} words.
+4. H2 - SHOP BY USE CASE or APPLICATION:
+   - Cover ${productTypesList} as it relates to use cases
+   - Match products to different needs (competition, hunting, tactical, recreational)
+   - Direct customers: "For X use, browse our Y selection" or "We recommend Z for..."
+   - Mention what's in stock: "Our inventory includes..."
 
-KEYWORDS: Integrate primary naturally throughout, especially first paragraph and H2 headings. Use secondary (${secondaryKeywordsList}) and semantic (${semanticKeywordsList}) contextually. Prioritize readability over keyword placement.
+5. H2 - BROWSE OUR SELECTION or similar commercial heading:
+   - Quick summary of what customers can find
+   - Call to action: browse, shop, explore
+   - Mention European stock, pricing in €, customer support
+
+Write each section with substance but keep it commercial. Total approximately ${targetWordCount} words.
+
+KEYWORDS: Integrate primary naturally throughout. Scatter secondary (${secondaryKeywordsList}) and semantic (${semanticKeywordsList}) where natural. Readability first.
 
 TONE EXAMPLES:
-✓ "Red dot sights offer unlimited eye relief and fast target acquisition. The tradeoff is limited magnification, typically 1x or up to 3x."
-✗ "Red dot sights aren't just accessories - they're game-changing optics that take your shooting to the next level."
+✓ "We stock red dots from €150 to €600, covering recreational shooters to competition-grade options."
+✗ "Red dot sights offer unlimited eye relief and fast acquisition. The tradeoff is limited magnification."
+
+✓ "Browse our scope selection for hunting rifles - we carry fixed and variable magnification from trusted brands."
+✗ "Magnification creates tradeoffs - higher power aids precision but narrows field of view and slows acquisition."
+
+(Educational content is OK, but always tie it back to what you sell)
 
 HALLUCINATION EXAMPLES (NEVER DO THIS):
 ✗ "Most red dots last exactly 50,000 hours on setting 8" (never cite specific numbers you don't have)
 ✗ "Budget models typically measure 45mm in length and weigh 85 grams" (never invent specific measurements)
 ✗ "The Holosun HS507C costs €320 while the Trijicon RMR runs €580" (never cite specific prices unless provided)
 ✗ "Premium models use the new XR-9 coating technology" (never invent technical features or terminology)
-✓ "Battery life varies widely - premium models can run for years, budget options may need changes every 6-12 months" (general ranges are fine)
-✓ "Prices typically range from budget-friendly options under €200 to competition-grade models above €500" (broad ranges OK if you're certain)
+✓ "Battery life varies - premium models run for years, budget options need changes every 6-12 months" (general ranges OK)
+✓ "We stock options from €150 to €600 depending on features and intended use" (broad ranges OK if certain)
 
 META TITLE:
-- Must be 50-60 characters TOTAL (including " | No Boring Guns")
+- Must be 55-60 characters TOTAL (including " | No Boring Guns")
+- Don't make it too short (40 chars is too short, aim for 55-60)
 - Include primary keyword
-- Be specific about what makes this guide valuable
-- Example: "Red Dot Sights Buying Guide | No Boring Guns" (48 chars)
+- Make it commercial, not "buying guide"
+- Examples:
+  * "Gun Optics: Red Dots, Scopes & Mounts | No Boring Guns" (58 chars) ✓
+  * "Shop Rifle Scopes & Tactical Optics | No Boring Guns" (56 chars) ✓
+  * "Gun Optics Buying Guide | No Boring Guns" (44 chars) ✗ TOO SHORT
 
 META DESCRIPTION:
-- Must be 150-160 characters MAXIMUM (count carefully - do not exceed 160)
+- Must be 155-160 characters MAXIMUM (count carefully - do not exceed 160)
 - Primary keyword in first 80 characters
-- Highlight specific value (what questions this answers)
-- Natural call to action
-- Example: "Red dot sight guide: how to choose, what to look for, top options for hunting, competition, and tactical use. Expert recommendations in €." (144 chars)
+- Make it COMMERCIAL not educational: emphasize shop/browse/stock
+- Include what you sell, who it's for, pricing mention in €, call to action
+- Examples:
+  * "Shop gun optics: red dots, scopes, mounts for pistols and rifles. We stock budget to premium options. European inventory, competitive pricing in €. Browse now." (160 chars) ✓
+  * "Gun optics guide: choosing sights, mounts, and adapters for pistols, rifles. Compatibility, quality, and budget advice. Expert picks in €." (144 chars) ✗ TOO EDUCATIONAL
 
 FAQ SECTION:
 Use questions from input above.
 - Format each question as H3
 - Write 2-3 full sentences per answer (NOT just one short sentence)
-- Each answer must provide UNIQUE information - no repetition between questions
-- Focus on practical buying advice, compatibility notes, specific use cases
-- Include specific numbers, compatibility details, practical tips
+- Each answer must provide UNIQUE information - no repetition
+- Focus on practical buying advice, compatibility, what you stock
+- Include numbers, compatibility details, practical tips
 
 Good FAQ example:
-Q: How long do red dot batteries last?
-A: Most red dot sights use CR2032 batteries that last 2,000-50,000 hours depending on brightness setting and model. Premium models like Aimpoint can run for years on medium brightness. Budget models typically need battery changes every 6-12 months with regular use.
+Q: Do I need special mounts for AK optics?
+A: Yes, most AK rifles need dedicated mounting solutions since they lack standard Picatinny rails. We stock side rail mounts and dust cover replacements that work with popular AK variants. Prices range from €40 for basic mounts to €120 for quick-detach systems.
 
 OUTPUT FORMAT:
 ---MAIN-CONTENT-START---
-[HTML content with H2 and H3 tags, write full ${targetWordCount} words]
+[HTML with H2/H3, write full ${targetWordCount} words, commercial tone]
 ---MAIN-CONTENT-END---
 
 ---META-TITLE-START---
-[Title text, 50-60 chars including " | No Boring Guns"]
+[Title 55-60 chars including " | No Boring Guns"]
 ---META-TITLE-END---
 
 ---META-DESCRIPTION-START---
-[Description text, 150-160 chars maximum - count carefully]
+[Description 155-160 chars maximum, commercial tone]
 ---META-DESCRIPTION-END---
 
 ---FAQ-SECTION-START---
-[HTML with H3 for questions, <p> tags with 2-3 sentence answers]
+[HTML: H3 questions, <p> with 2-3 sentence answers]
 ---FAQ-SECTION-END---
 
 FINAL QUALITY CHECKS:
 1. Did I write full ${targetWordCount} words? Count and expand sections if short.
 2. Any em dashes (—)? Remove all, use only regular hyphens (-).
-3. Meta description under 160 characters? Count it precisely.
-4. FAQ answers have 2-3 sentences with practical details? Expand if too brief.
-5. Does this actually help buying decisions? Add value if too vague.
-6. HALLUCINATION CHECK: Did I cite any specific model names, measurements, battery life numbers, or technical specs I'm not certain exist? Remove all fabricated details.`
+3. Meta title 55-60 chars (not too short)? Count it.
+4. Meta description 155-160 chars and COMMERCIAL tone? Count and check tone.
+5. Does this sound like a SHOP category page or an article? Make it commercial.
+6. Did I reference "we stock", "browse", "shop" multiple times? Add if missing.
+7. HALLUCINATION CHECK: Did I cite specific models, measurements, or specs I don't have? Remove fabricated details.`
 }
