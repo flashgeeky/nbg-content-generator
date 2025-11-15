@@ -1,6 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest, NextResponse } from 'next/server'
-import { FormData, GeneratedContent } from '../../types'
+import { ContentFormData, GeneratedContent } from '../../types'
 import { buildBrandPagePrompt, buildCategoryPagePrompt } from '../../lib/prompts'
 
 export const maxDuration = 60 // Allow up to 60 seconds for content generation
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse request body
-    const formData: FormData = await request.json()
+    const formData: ContentFormData = await request.json()
 
     // Validate required fields
     if (!formData.primaryKeyword || !formData.contentType) {

@@ -1,6 +1,6 @@
-import { FormData } from '../types'
+import { ContentFormData } from '../types'
 
-export function buildBrandPagePrompt(formData: FormData): string {
+export function buildBrandPagePrompt(formData: ContentFormData): string {
   const {
     primaryKeyword,
     productTypes,
@@ -139,7 +139,7 @@ FINAL QUALITY CHECKS:
 6. HALLUCINATION CHECK: Did I invent any specific model names, measurements, specs, prices, or company history I'm not certain about? Remove all fabricated details.`
 }
 
-export function buildCategoryPagePrompt(formData: FormData): string {
+export function buildCategoryPagePrompt(formData: ContentFormData): string {
   const {
     primaryKeyword,
     productTypes,
