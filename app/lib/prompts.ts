@@ -184,16 +184,16 @@ CRITICAL RULES:
 - ONLY regular hyphens (-), NEVER em dashes (—) or en dashes (–)
 - COMMERCIAL TONE: This is a shop category page, not a blog article
 - Write like a knowledgeable retailer showcasing inventory, not an educator writing a guide
-- Reference "we stock", "our selection", "browse", "shop" naturally throughout
+- Mention "No Boring Guns" or "we" ONCE in opening paragraph only. Then focus on product information. DON'T repeat "we stock", "browse", "shop" throughout content.
 - Make it clear customers can BUY these products here
 - Educational buying advice is good, but frame it around what you sell
 - Acknowledge tradeoffs honestly
-- Mention "No Boring Guns" or "we" 3-4 times (more than brand pages since this is YOUR category)
 
 ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
 - NEVER invent specific product model names or brands unless you're certain they exist
 - NEVER cite specific measurements, battery life hours, or technical specs you don't have
-- NEVER state definitive prices - use ranges only if you're certain (e.g., "typically €200-600")
+- NEVER mention specific prices or price ranges in main content
+- Only answer price questions in FAQ if such a question exists
 - NEVER describe specific features of products you're not sure about
 - When discussing "typical" specs, use qualifiers: "generally", "often", "many models", "typically range"
 - If you don't have specific information, stay educational and general
@@ -201,62 +201,57 @@ ANTI-HALLUCINATION RULES (CRITICAL - NEVER VIOLATE):
 - Better to explain concepts than cite fake specifications
 
 TONE - COMMERCIAL VS ARTICLE:
-✗ WRONG (too article-like): "Gun optics transform how you aim and engage targets, replacing traditional iron sights with magnified systems."
-✓ RIGHT (commercial): "Shop gun optics for pistols, rifles, and AK platforms. We stock red dots, magnified scopes, and complete mounting solutions."
+✗ WRONG (too article-like): "Understanding the relationship between optic type and mounting hardware matters for optimal performance..."
+✓ RIGHT (commercial, mention NBG once in opening): "Shop gun optics at No Boring Guns for pistols, rifles, and AK platforms. Red dots, magnified scopes, and complete mounting solutions."
 
-✗ WRONG: "Understanding the relationship between optic type and mounting hardware matters..."
-✓ RIGHT: "Browse our optics selection - we carry everything from red dots to tactical scopes with compatible mounts."
+✗ WRONG (too repetitive after opening): "We stock red dots... We carry scopes... Browse our mounts... Our selection includes..."
+✓ RIGHT (focus on products): "Red dot sights provide fast target acquisition. Magnified scopes excel at distance. Mount compatibility depends on your platform."
 
 STRUCTURE (write full ${targetWordCount} words, commercial tone):
 
 1. OPENING (2 paragraphs):
-   - Start with what you SELL in this category, not education
+   - Mention "No Boring Guns" or "we" ONCE in first paragraph
    - "Shop [category] at No Boring Guns. We stock [products] for [uses]."
    - Second paragraph: Why customers buy from this category, what problems these products solve
-   - Reference "our inventory", "we carry", "browse our selection"
+   - After opening, focus on product information without repeating "we/our"
 
-2. H2 - PRODUCT OVERVIEW:
-   - What's in this category (keep educational but frame around "what we stock")
+2. H2 - PRODUCT TYPES or UNDERSTANDING [CATEGORY]:
+   - What's in this category (educational but concise)
    - Key product types customers can find here
    - Brief technical context (not a lecture)
 
-3. H2 - BUYING GUIDE or CHOOSING [CATEGORY] (with H3 subsections):
-   - Decision factors as H3s (e.g., "Mounting Options", "Optical Quality", "Budget Ranges")
-   - For each: what to consider, tradeoffs, what we stock in each tier
-   - Price ranges in euros (€) - reference "our" prices or typical market ranges
-   - Make it helpful but commercial: "We stock options from €X to €Y"
+3. H2 - CHOOSING [CATEGORY] or BUYING CONSIDERATIONS (with H3 subsections):
+   - Decision factors as H3s (e.g., "Mounting Options", "Optical Quality", "Build Quality")
+   - For each: what to consider, tradeoffs, what makes quality products
+   - Focus on decision criteria, NOT price ranges
+   - Make it helpful and informative
 
-4. H2 - SHOP BY USE CASE or APPLICATION:
+4. H2 - APPLICATIONS or USE CASES:
    - Cover ${productTypesList} as it relates to use cases
    - Match products to different needs (competition, hunting, tactical, recreational)
-   - Direct customers: "For X use, browse our Y selection" or "We recommend Z for..."
-   - Mention what's in stock: "Our inventory includes..."
+   - Focus on which product types suit which applications
+   - Technical and practical guidance
 
-5. H2 - BROWSE OUR SELECTION or similar commercial heading:
-   - Quick summary of what customers can find
-   - Call to action: browse, shop, explore
-   - Mention European stock, pricing in €, customer support
-
-Write each section with substance but keep it commercial. Total approximately ${targetWordCount} words.
+Write each section with substance. Total approximately ${targetWordCount} words.
 
 KEYWORDS: Integrate primary naturally throughout. Scatter secondary (${secondaryKeywordsList}) and semantic (${semanticKeywordsList}) where natural. Readability first.
 
 TONE EXAMPLES:
-✓ "We stock red dots from €150 to €600, covering recreational shooters to competition-grade options."
-✗ "Red dot sights offer unlimited eye relief and fast acquisition. The tradeoff is limited magnification."
+✗ "Shop chest rigs at No Boring Guns. We stock tactical chest rigs, military chest rigs..." (too repetitive)
+✓ "Browse chest rigs for tactical and competition use. From minimalist carriers to MOLLE platforms." (commercial but not repetitive)
 
-✓ "Browse our scope selection for hunting rifles - we carry fixed and variable magnification from trusted brands."
-✗ "Magnification creates tradeoffs - higher power aids precision but narrows field of view and slows acquisition."
+✓ "Red dot sights offer unlimited eye relief and fast acquisition. The tradeoff is limited magnification." (informative, no price mentions)
+✗ "We stock red dots from €150 to €600, covering recreational shooters to competition-grade options." (price mentions in main content)
 
-(Educational content is OK, but always tie it back to what you sell)
+(Educational content is good - just don't repeat "we/our" or mention prices)
 
 HALLUCINATION EXAMPLES (NEVER DO THIS):
 ✗ "Most red dots last exactly 50,000 hours on setting 8" (never cite specific numbers you don't have)
 ✗ "Budget models typically measure 45mm in length and weigh 85 grams" (never invent specific measurements)
-✗ "The Holosun HS507C costs €320 while the Trijicon RMR runs €580" (never cite specific prices unless provided)
+✗ "Options range from €150 to €600 depending on features" (NO price mentions in main content)
 ✗ "Premium models use the new XR-9 coating technology" (never invent technical features or terminology)
 ✓ "Battery life varies - premium models run for years, budget options need changes every 6-12 months" (general ranges OK)
-✓ "We stock options from €150 to €600 depending on features and intended use" (broad ranges OK if certain)
+✓ "Quality ranges from entry-level options to competition-grade systems" (describe tiers without prices)
 
 META TITLE:
 - Must be 55-60 characters TOTAL (including " | No Boring Guns")
@@ -272,22 +267,24 @@ META DESCRIPTION:
 - Must be 155-160 characters MAXIMUM (count carefully - do not exceed 160)
 - Primary keyword in first 80 characters
 - Make it COMMERCIAL not educational: emphasize shop/browse/stock
-- Include what you sell, who it's for, pricing mention in €, call to action
+- Include what you sell, who it's for, call to action
+- NO price mentions in meta description (prices change, keep meta stable)
 - Examples:
-  * "Shop gun optics: red dots, scopes, mounts for pistols and rifles. We stock budget to premium options. European inventory, competitive pricing in €. Browse now." (160 chars) ✓
-  * "Gun optics guide: choosing sights, mounts, and adapters for pistols, rifles. Compatibility, quality, and budget advice. Expert picks in €." (144 chars) ✗ TOO EDUCATIONAL
+  * "Shop gun optics: red dots, scopes, mounts for pistols and rifles. Budget to premium options from trusted brands. European inventory. Browse now." (148 chars) ✓
+  * "Gun optics guide: choosing sights, mounts, and adapters for pistols, rifles. Compatibility, quality, and budget advice." (122 chars) ✗ TOO EDUCATIONAL
 
 FAQ SECTION:
 Use questions from input above.
 - Format each question as H3
 - Write 2-3 full sentences per answer (NOT just one short sentence)
 - Each answer must provide UNIQUE information - no repetition
-- Focus on practical buying advice, compatibility, what you stock
+- Focus on practical buying advice, compatibility, technical details
 - Include numbers, compatibility details, practical tips
+- Only mention prices if answering a direct price question from FAQ input
 
 Good FAQ example:
 Q: Do I need special mounts for AK optics?
-A: Yes, most AK rifles need dedicated mounting solutions since they lack standard Picatinny rails. We stock side rail mounts and dust cover replacements that work with popular AK variants. Prices range from €40 for basic mounts to €120 for quick-detach systems.
+A: Yes, most AK rifles need dedicated mounting solutions since they lack standard Picatinny rails. Side rail mounts attach to the receiver's scope rail, while dust cover replacements provide top-mounted Picatinny sections. Quick-detach systems allow you to remove and remount optics while maintaining zero.
 
 OUTPUT FORMAT:
 ---MAIN-CONTENT-START---
@@ -311,7 +308,8 @@ FINAL QUALITY CHECKS:
 2. Any em dashes (—)? Remove all, use only regular hyphens (-).
 3. Meta title 55-60 chars (not too short)? Count it.
 4. Meta description 155-160 chars and COMMERCIAL tone? Count and check tone.
-5. Does this sound like a SHOP category page or an article? Make it commercial.
-6. Did I reference "we stock", "browse", "shop" multiple times? Add if missing.
-7. HALLUCINATION CHECK: Did I cite specific models, measurements, or specs I don't have? Remove fabricated details.`
+5. NO price mentions in meta description? Check and remove if present.
+6. Did I mention "No Boring Guns" or "we" ONCE in opening only? Check for repetition and remove.
+7. NO price ranges in main content? Check and remove (prices only in FAQ if question exists).
+8. HALLUCINATION CHECK: Did I cite specific models, measurements, or specs I don't have? Remove fabricated details.`
 }
